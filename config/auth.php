@@ -67,7 +67,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => Desafio\User::class,
+            'model' => Desafio\Entities\User::class,
         ],
 
         // 'users' => [
