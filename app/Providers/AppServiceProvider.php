@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace Desafio\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
