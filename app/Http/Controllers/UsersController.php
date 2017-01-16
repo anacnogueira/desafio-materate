@@ -32,4 +32,12 @@ class UsersController extends Controller
         return view('users.profile', compact('user'));
     }
 
+    public function index()
+    {
+        $users = $this->user->all();
+
+        return view('users.index', compact('users'));
+    }
+
+
 }

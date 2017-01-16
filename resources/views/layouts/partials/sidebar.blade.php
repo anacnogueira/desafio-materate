@@ -22,7 +22,7 @@
         <ul class="sidebar-menu">
             <li class="header">Menu</li>            
             <li><a href="{{ route('home') }}"><i class='fa fa-link'></i> <span>Dashboard</span></a></li>
-            <li><a href="#"><i class='fa fa-user'></i> <span>Usuários</span></a></li>
+            <li><a href="{{ route('user.index') }}"><i class='fa fa-user'></i> <span>Usuários</span></a></li>
         </ul><!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->

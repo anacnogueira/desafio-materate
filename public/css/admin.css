@@ -60,3 +60,8 @@ input:read-only {
 	text-align: center;
 	font-size: 32px;
 }
+
+.deleteForm{
+	float:left; 
+	margin-right: 10px
+}

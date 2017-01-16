@@ -10,23 +10,7 @@ $(document).ready(function(){
 	$("input[type='password']").focus(function(){
 		$("input[type='password']").attr("readonly",false);
 	});
-
-	//$(".notifications-alert").html(10); 
-
-	//Cep
-  	$('.cep').blur(function(){
-    	var cep = this.value.replace(/[^0-9]/gi, "");
-    	if(cep.length != 8) return false;
-    	$.getJSON('//viacep.com.br/ws/'+cep+'/json/', function(data){
-    		//console.log(data);
-        	if (typeof data.erro == 'undefined') {
-          		$('#address').val(data.logradouro);
-          		$('#neighborhood').val(data.bairro);
-          		$('#city').val(data.localidade);
-          		$("#state").val(data.uf);          
-        	}
-    	});
-  	}).trigger('blur');     
+	 
 });
 
 function deleteConfirm(event, id){
@@ -35,7 +19,7 @@ function deleteConfirm(event, id){
 
 	swal({   
 		title: "Tem certeza que deseja excluir o registro " + id + "?",   
-		text: "Você não poderá recuperar esse registro após esta ação",   
+		text: "Não se preocupe, você poderá recuperar esse registro depois",   
 		type: "warning",   
 		showCancelButton: true, 
 		cancelButtonText: "Cancelar",  
