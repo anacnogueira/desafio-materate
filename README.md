@@ -32,10 +32,10 @@ Web:
 Faça um fork deste repositório e ao finalizar envie o link do repositório com o desafio completo.
 
 #### Intruções de instalaçao:
-1. Faça o clone do projeto em https://github.com/anacnogueira/desafio-materate.github
-2. Altere o arquivo .env.example para .env e altere as configurações de banco de dados (host, nome do banco, usuario e senha)
-3. Rode o comando php artisan migrate --seed  no terminal para criar as tabelas e popular a tabela users
-4. Rode o comando composer update no terminal para instalar as depedências
+1. Faça o clone do projeto `git clone https://github.com/anacnogueira/desafio-materate.github`
+2. Altere o arquivo **.env.example**  para **.env** e altere as configurações de banco de dados (host, nome do banco, usuario e senha)
+3. Rode o comando `php artisan migrate --seed`  no terminal para criar as tabelas e popular a tabela users
+4. Rode o comando `composer update` no terminal para instalar as depedências
 
-## h4 Login do usuário administrador
+#### Login do usuário administrador
 Usuário: anacnogueira@gmail.com Senha: 123456
