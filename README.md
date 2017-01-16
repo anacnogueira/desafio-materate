@@ -38,4 +38,5 @@ Faça um fork deste repositório e ao finalizar envie o link do repositório com
 4. Rode o comando `composer update` no terminal para instalar as depedências
 
 #### Login do usuário administrador
-Usuário: anacnogueira@gmail.com Senha: 123456
+Usuário: anacnogueira@gmail.com 
+Senha: 123456
