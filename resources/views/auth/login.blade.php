@@ -42,9 +42,7 @@
                 <button type="submit" class="btn btn-primary btn-block btn-flat">{{ trans('adminlte_lang::message.buttonsign') }}</button>
             </div><!-- /.col -->
         </div>
-    </form>   
-
-    <a href="{{ url('admin/password/reset') }}">{{ trans('adminlte_lang::message.forgotpassword') }}</a><br>
+    </form>  
    
 
 </div><!-- /.login-box-body -->
