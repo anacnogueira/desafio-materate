@@ -11,19 +11,30 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Route::group(['middleware' => 'auth'], function () {
-    //    Route::get('/link1', function ()    {
-//        // Uses Auth Middleware
-//    });
+    Route::get('/', function () {
+    	return view('welcome');
+	});
 
-    //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
-    #adminlte_routes
+	Route::get('/home', ['as' => 'home', 'uses' => 'HomeController@index']);
+	Route::get('/perfil', ['as' =>'user.profile', 'uses' => 'UsersController@profile']);
+
+	/* --- Users --- */
+		Route::group(['prefix'=>'usuarios'], function(){
+			Route::get('/', ['as' =>'user.index', 'uses' => 'UsersController@index']);
+			Route::get('adicionar', ['as' => 'user.create', 'uses' => 'UsersController@create']);
+			Route::post('store', ['as' => 'user.store', 'uses' => 'UsersController@store']);
+			Route::get('editar/{id}', ['as' => 'user.edit', 'uses' => 'UsersController@edit']);
+			Route::put('update/{id}', ['as' => 'user.update', 'uses' => 'UsersController@update']);
+			Route::delete('excluir/{id}', ['as' => 'user.destroy', 'uses' => 'UsersController@destroy']);
+		});
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+
+
+Route::get('login',  ['as' => 'login', 'uses' => 'Auth\LoginController@showLoginForm']);
+Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\LoginController@logout']);

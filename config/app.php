@@ -178,7 +178,7 @@ return [
         // Desafio\Providers\BroadcastServiceProvider::class,
         Desafio\Providers\EventServiceProvider::class,
         Desafio\Providers\RouteServiceProvider::class,
-
+        Desafio\Providers\ManageFileServiceProvider::class,
     ],
 
     /*

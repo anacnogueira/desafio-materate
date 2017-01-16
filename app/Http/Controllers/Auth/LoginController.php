@@ -20,6 +20,8 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
+    protected $redirectAfterLogout = 'auth/login';
+
     /**
      * Show the application's login form.
      *
@@ -27,7 +29,7 @@ class LoginController extends Controller
      */
     public function showLoginForm()
     {
-        return view('adminlte::auth.login');
+        return view('auth.login');
     }
 
     /**
