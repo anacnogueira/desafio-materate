@@ -31,6 +31,8 @@ Web:
 
 Faça um fork deste repositório e ao finalizar envie o link do repositório com o desafio completo.
 
+---
+
 #### Intruções de instalaçao:
 1. Faça o clone do projeto `git clone https://github.com/anacnogueira/desafio-materate.github`
 2. Altere o arquivo **.env.example**  para **.env** e altere as configurações de banco de dados (host, nome do banco, usuario e senha)
