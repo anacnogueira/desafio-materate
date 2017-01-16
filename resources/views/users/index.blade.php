@@ -8,7 +8,11 @@
     Usuários
     <ul class="list-inline">
         <li><a href="{{ route('user.create')}}" class="btn btn-primary btn-xs"><i class="fa fa-pencil" aria-hidden="true"></i> Adicionar</a></li>
-        <li><a href="{{ route('user.index', ['deleted' => 1]) }}" class="btn  btn-danger btn-xs"><i class="fa fa-times-circle-o" aria-hidden="true"></i> Excluídos</a></li>
+        @if($deleted == 1)
+        <li><a href="{{ route('user.index') }}" class="btn  btn-success btn-xs"><i class="fa fa-check" aria-hidden="true"></i> Ativos</a></li>
+        @else
+        <li><a href="{{ route('user.deleted', ['deleted' => 1]) }}" class="btn  btn-danger btn-xs"><i class="fa fa-times-circle-o" aria-hidden="true"></i> Excluídos</a></li>
+        @endif
     </ul>    
 @stop
 
@@ -31,7 +35,7 @@
             <div class="col-xs-12">
                 <div class="box box-danger">
                     <div class="box-header">
-                        <h3 class="box-title">Listar Usuários</h3>
+                        <h3 class="box-title">Listar Usuários {{ $deleted == 1 ? ' Excluídos'  : ' Ativos' }}</h3>
                     </div>
                     <div class="box-body">
                         <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
@@ -53,16 +57,17 @@
                                             <tr role="row" class="">
                                                 <td>
                                                     {{ $user['name'] }} <br>
-                                                    @if ($user['id'] != Auth::user()->id)            
-                                                    <div class="deleteForm">
-                                                        {!! Form::open(['route' => ['user.destroy', $user['id']], 'method' => 'delete', 'id'=>'form'.$user['id']]) !!}
-                                                        {!! Form::button('<i class="fa fa-times"></i> Excluir', ['type' => 'submit','class' => 'btn btn-danger', 'onclick'=>"deleteConfirm(event, {$user['id']})"]) !!}
-                                                        {!! Form::close() !!}
-                                                        &nbsp; &nbsp;
-                                                    </div>
+                                                    @if ($deleted == 0)
+                                                        @if ($user['id'] != Auth::user()->id)            
+                                                        <div class="deleteForm">
+                                                            {!! Form::open(['route' => ['user.destroy', $user['id']], 'method' => 'delete', 'id'=>'form'.$user['id']]) !!}
+                                                            {!! Form::button('<i class="fa fa-times"></i> Excluir', ['type' => 'submit','class' => 'btn btn-danger', 'onclick'=>"deleteConfirm(event, {$user['id']})"]) !!}
+                                                            {!! Form::close() !!}
+                                                            &nbsp; &nbsp;
+                                                        </div>
+                                                        @endif
+                                                        <a href="{{ route('user.edit',['id' => $user['id']]) }}" class='btn btn-warning'><i class="fa fa-edit"></i> Editar</a>
                                                     @endif
-                                                    <a href="{{ route('user.edit',['id' => $user['id']]) }}" class='btn btn-warning'><i class="fa fa-edit"></i> Editar</a>
-                                                    
                                                 </td>
                                                 <td>{{ $user['email'] }}</td>
                                             </tr>

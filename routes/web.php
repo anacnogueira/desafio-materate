@@ -24,6 +24,8 @@ Route::group(['middleware' => 'auth'], function () {
 	/* --- Users --- */
 		Route::group(['prefix'=>'usuarios'], function(){
 			Route::get('/', ['as' =>'user.index', 'uses' => 'UsersController@index']);
+			Route::get('excluidos/{deleted}', ['as' =>'user.deleted', 'uses' => 'UsersController@index']);
+
 			Route::get('adicionar', ['as' => 'user.create', 'uses' => 'UsersController@create']);
 			Route::post('store', ['as' => 'user.store', 'uses' => 'UsersController@store']);
 			Route::get('editar/{id}', ['as' => 'user.edit', 'uses' => 'UsersController@edit']);

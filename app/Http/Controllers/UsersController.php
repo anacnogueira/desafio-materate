@@ -32,11 +32,14 @@ class UsersController extends Controller
         return view('users.profile', compact('user'));
     }
 
-    public function index()
+    public function index($deleted = 0)
     {
         $users = $this->user->all();
 
-        return view('users.index', compact('users'));
+        if ($deleted == 1)
+            $users = $this->user->onlyTrashed()->get();
+
+        return view('users.index', compact('users','deleted'));
     }
 
     public function create()
@@ -115,6 +118,18 @@ class UsersController extends Controller
         session()->flash('success', 'Usuário Atualizado com sucesso');
         return redirect()->route($success_route);
     }
+
+    public function destroy($id)
+    {
+        $user = $this->user->find($id);
+
+        //Delete the file
+        $this->manageFile->delete('storage/users', $user->image);
+
+        $user->delete();
+        
+        return redirect()->route("user.index");
+    }   
 
     /* PRIVATE FUNCTIONS */ 
     private function validates($request, $action)
