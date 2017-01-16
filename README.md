@@ -33,7 +33,7 @@ Faça um fork deste repositório e ao finalizar envie o link do repositório com
 
 ---
 
-#### Intruções de instalaçao:
+#### Intruções de instalação:
 1. Faça o clone do projeto `git clone https://github.com/anacnogueira/desafio-materate.github`
 2. Altere o arquivo **.env.example**  para **.env** e altere as configurações de banco de dados (host, nome do banco, usuario e senha)
 3. Rode o comando `php artisan migrate --seed`  no terminal para criar as tabelas e popular a tabela users
